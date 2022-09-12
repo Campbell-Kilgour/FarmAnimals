@@ -8,18 +8,25 @@ namespace FarmAnimals
 {
     public class Sheep : Animal
     {
-        public Sheep(int xLocation, int yLocation, Padock padock) : base(xLocation, yLocation, padock)
+        public int XLocation { get; }
+        public int YLocation { get; }
+
+        private int speed = 5; // Change this to change max speed of sheep
+
+        public Sheep(int xLocation, int yLocation) : base(xLocation, yLocation)
         {
-            this.speed = 2;
         }
 
-        public Sheep(Padock padock) : base(padock)
+        public Sheep(int[] padockSize) : base(padockSize)
         {
-            speed = 2;
+            // Generates a random location for sheep
+            Random random = new Random();
+
+
         }
 
         /// <summary>
-        /// Figures out and moves a sheep
+        /// Takes input and returns a new sheep location 
         /// </summary>
         public void Think(int[] herdLocation)
         {
